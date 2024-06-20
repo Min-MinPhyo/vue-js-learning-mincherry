@@ -1,0 +1,9 @@
+img{
+    height:200px;
+}
+.rotate{
+    transform:rotate(90deg);
+}
+.marginRight{
+    margin-left:12rem;
+}

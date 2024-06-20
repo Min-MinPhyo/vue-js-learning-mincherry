@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{name}}</h1>
+
+      <h1>{{age ? "Single": "Rs"}}</h1>
+
+      <div v-bind:title="love.split(' ').join('Min')">ma yi</div>
+
+      <hr />
+
+      <!-- <img :src="mOne" :class="[mRotate,normal]" alt="Hello" /> -->
+      <img :src="mOne" :class="{mRotate:age>50}" alt="Hello" />
+      <!-- <p :style="[fontSize:fs+'px',border-radius:border+'px']">
+    
+         -->
+         <p :style="{fontSize:fs+'px',color:r}">Ma Yi Winne</p>
+        Ma Yi Poe Yu Nwe
+      </p>
+    </div>
+    <!-- v-bind a sar : ko thone the -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+
+    <script>
+      let vue = new Vue({
+        // vue instance nae bae hnan fan the
+        el: "#app",
+
+        data: {
+          name: "Min min Phyo",
+          love: "Winne Ko Chit Tal",
+          status: false,
+          mOne: "/images/m1.jpg",
+          mRotate: "rotate",
+          age: 21,
+          normal: "marginRight",
+          fs: 200,
+          r:"red"
+        //   border: 50,
+        },
+      });
+    </script>
+  </body>
+</html>

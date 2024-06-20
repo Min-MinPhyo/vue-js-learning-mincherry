@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h4>{{message}}</h4>
+    <div id="app">
+      <h1>{{title}} and {{message}}</h1>
+
+      <ul>
+        <li v-for="item in items">{{item}}</li>
+
+        <ul>
+          <li v-for="data in datas">
+            <button @click="data.price +=1">Add Data</button>
+            <input type="number" v-model.number="data.price" />
+            {{data.id}} || {{data.data}} || {{data.price}}
+
+            <b v-if="data.price===0">Zero Data </b>
+            <br /><br />
+            <b>Total value is {{getTotal}}</b>
+          </li>
+          <input type="text" v-model="newData" />
+          <input type="number" v-model="newPrice.number" />
+          <button @click="running()">Run</button>
+        </ul>
+      </ul>
+    </div>
+
+    <!-- <script src="/vue_js/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+      let vue = new Vue({
+        el: "#app",
+
+        data: {
+          title: "Hello Vue Js",
+          message: "Hello Min Min Phyo",
+          items: ["Min Min Phyo", "Ko Phyo", "Kwee Phyo"],
+          datas: [
+            { id: 1, data: "Min Min", price: 23 },
+            { id: 2, data: "Phyo Phyo", price: 0 },
+
+            { id: 3, data: "Ko Phyo", price: 33 },
+          ],
+          newData: "",
+          newPrice: "",
+        },
+        computed: {
+          getTotal() {
+            return this.datas.reduce((t, v) => t + v.price, 0);
+            //0 is initial value
+          },
+        },
+        methods: {
+          running() {
+            let addData = {
+              id: this.datas.length + 1,
+              data: this.newData,
+              price: this.newPrice,
+            };
+            this.datas.push(addData);
+          },
+        },
+      });
+      //   running() {
+      //     let addData = {
+      //       id: this.datas.length + 1,
+      //       data: this.newData,
+      //       price: this.newPrice,
+      //     };
+      //     this.datas.push(addData);
+      //   },
+    </script>
+  </body>
+</html>
